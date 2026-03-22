@@ -65,24 +65,24 @@ export default function Portfolio() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative"
+              className="relative flex justify-center lg:justify-end"
             >
-              <div className="relative aspect-square md:aspect-[4/5] rounded-3xl overflow-hidden border border-zinc-800 bg-zinc-900">
+              <div className="relative w-72 h-72 md:w-[400px] md:h-[400px] rounded-full overflow-hidden border-[6px] border-zinc-900 ring-4 ring-orange-500/20 bg-zinc-900 shadow-2xl shadow-orange-500/20">
                 <Image
-                  src="https://picsum.photos/seed/rohitsingh/800/1000"
+                  src="https://picsum.photos/seed/rohitsingh/800/800"
                   alt="Rohit Singh"
                   fill
-                  className="object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-700"
+                  className="object-cover opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-700"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent" />
+                <div className="absolute inset-0 rounded-full bg-gradient-to-t from-zinc-950/40 via-transparent to-transparent pointer-events-none" />
               </div>
               {/* Floating Stat Card */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
-                className="absolute -bottom-6 -left-6 bg-zinc-900 border border-zinc-800 p-6 rounded-2xl shadow-2xl"
+                className="absolute bottom-0 left-0 md:-left-8 bg-zinc-900 border border-zinc-800 p-6 rounded-2xl shadow-2xl z-10"
               >
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-500">
