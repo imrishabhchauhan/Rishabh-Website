@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { ArrowRight, BarChart3, Mail, Megaphone, MousePointerClick, Search, Target, TrendingUp, Linkedin, Twitter, Github } from 'lucide-react';
+import { ArrowRight, BarChart3, Mail, Megaphone, MousePointerClick, Search, Target, TrendingUp, Linkedin, Twitter, Github, ExternalLink, Star, Quote } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -15,12 +15,14 @@ export default function Portfolio() {
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-zinc-800/50 bg-zinc-950/50 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <Link href="/" className="text-2xl font-heading font-bold tracking-tighter">
-            Rohit<span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">.</span>
+            Rishabh<span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">.</span>
           </Link>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
             <Link href="#about" className="hover:text-zinc-50 transition-colors">About</Link>
             <Link href="#services" className="hover:text-zinc-50 transition-colors">Services</Link>
+            <Link href="#projects" className="hover:text-zinc-50 transition-colors">Projects</Link>
             <Link href="#experience" className="hover:text-zinc-50 transition-colors">Experience</Link>
+            <Link href="#testimonials" className="hover:text-zinc-50 transition-colors">Testimonials</Link>
           </div>
           <Link href="#contact" className="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium text-white bg-gradient-to-r from-orange-500 to-amber-500 rounded-full hover:opacity-90 transition-opacity">
             Let&apos;s Talk
@@ -49,7 +51,7 @@ export default function Portfolio() {
                 </span>
               </h1>
               <p className="text-lg md:text-xl text-zinc-400 mb-8 leading-relaxed max-w-xl">
-                Hi, I&apos;m Rohit Singh. A Professional Digital Marketing Expert with 10 years of experience scaling brands, optimizing conversions, and maximizing ROI.
+                Hi, I&apos;m Rishabh Chauhan. A Professional Digital Marketing Expert with 10 years of experience scaling brands, optimizing conversions, and maximizing ROI.
               </p>
               <div className="flex flex-wrap items-center gap-4">
                 <Link href="#contact" className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-gradient-to-r from-orange-500 to-amber-500 rounded-full hover:opacity-90 transition-opacity gap-2">
@@ -67,17 +69,21 @@ export default function Portfolio() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative flex justify-center lg:justify-end"
             >
-              <div className="relative w-72 h-72 md:w-[400px] md:h-[400px] rounded-full overflow-hidden border-[6px] border-zinc-900 ring-4 ring-orange-500/20 bg-zinc-900 shadow-2xl shadow-orange-500/20">
+              <motion.div 
+                animate={{ y: [0, -15, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                className="relative w-72 h-72 md:w-[400px] md:h-[400px] rounded-full overflow-hidden border-[6px] border-zinc-900 ring-4 ring-orange-500/20 bg-zinc-900 shadow-2xl shadow-orange-500/20"
+              >
                 <Image
                   src="/rishabh-chauhan.png"
-                  alt="Rohit Singh"
+                  alt="Rishabh Chauhan"
                   fill
                   unoptimized={true}
                   className="object-cover opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-700"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 rounded-full bg-gradient-to-t from-zinc-950/40 via-transparent to-transparent pointer-events-none" />
-              </div>
+              </motion.div>
               {/* Floating Stat Card */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -161,6 +167,68 @@ export default function Portfolio() {
           </div>
         </section>
 
+        {/* Projects Section */}
+        <section id="projects" className="max-w-7xl mx-auto px-6 py-24 md:py-32">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-3xl md:text-5xl font-heading font-bold mb-6"
+            >
+              Featured Campaigns
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-zinc-400 text-lg"
+            >
+              Real results from data-driven strategies. Here are some of my most successful digital marketing campaigns.
+            </motion.p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              { title: 'Global E-commerce Scaling', category: 'PPC & SEO', image: 'ecommerce', desc: 'Scaled an international fashion brand to $2M MRR using advanced Google Ads bidding and technical SEO.', metric: '+150% ROAS' },
+              { title: 'SaaS Lead Generation', category: 'B2B Marketing', image: 'saas', desc: 'Revamped the entire funnel for a B2B SaaS, decreasing cost-per-acquisition while doubling lead volume.', metric: '-40% CPA' },
+              { title: 'Local Business Domination', category: 'Local SEO', image: 'localbiz', desc: 'Helped a regional chain of clinics dominate local search, driving a massive increase in booked appointments.', metric: '+300% Traffic' },
+              { title: 'App Install Campaign', category: 'Social Media', image: 'mobileapp', desc: 'Designed a viral TikTok and Instagram Reels campaign that skyrocketed app downloads in Q3.', metric: '500k+ Installs' },
+            ].map((project, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="group relative rounded-3xl overflow-hidden bg-zinc-900 border border-zinc-800"
+              >
+                <div className="relative h-64 md:h-80 w-full overflow-hidden">
+                  <Image
+                    src={`https://picsum.photos/seed/${project.image}/800/600`}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent opacity-80" />
+                  
+                  <div className="absolute top-6 right-6 bg-zinc-950/80 backdrop-blur-md px-4 py-2 rounded-full border border-zinc-800">
+                    <span className="text-orange-500 font-bold">{project.metric}</span>
+                  </div>
+                </div>
+                
+                <div className="absolute bottom-0 left-0 right-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  <p className="text-orange-500 text-sm font-medium mb-2">{project.category}</p>
+                  <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
+                  <p className="text-zinc-400 line-clamp-2 group-hover:line-clamp-none transition-all duration-500">{project.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
         {/* Experience Section */}
         <section id="experience" className="bg-zinc-900/30 border-y border-zinc-800/50 py-24 md:py-32">
           <div className="max-w-3xl mx-auto px-6">
@@ -209,6 +277,69 @@ export default function Portfolio() {
           </div>
         </section>
 
+        {/* Testimonials Section */}
+        <section id="testimonials" className="max-w-7xl mx-auto px-6 py-24 md:py-32 overflow-hidden">
+          <div className="text-center mb-16">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-3xl md:text-5xl font-heading font-bold mb-6"
+            >
+              Client Success Stories
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-zinc-400 text-lg"
+            >
+              Don't just take my word for it. Here's what my clients have to say.
+            </motion.p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { name: 'Sarah Jenkins', role: 'CMO, TechFlow', image: 'sarah', quote: 'Rishabh completely transformed our digital presence. His data-driven approach to our paid campaigns resulted in our best quarter ever.' },
+              { name: 'David Chen', role: 'Founder, Elevate E-com', image: 'david', quote: 'The ROI we\'ve seen since bringing Rishabh on board is staggering. He doesn\'t just run ads; he understands the entire customer journey.' },
+              { name: 'Elena Rodriguez', role: 'VP Marketing, Nexus', image: 'elena', quote: 'A true professional. Rishabh\'s SEO strategies helped us outrank competitors we thought were untouchable. Highly recommended.' },
+            ].map((testimonial, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.15 }}
+                className="bg-zinc-900/50 border border-zinc-800 p-8 rounded-3xl relative hover:border-orange-500/30 transition-colors"
+              >
+                <Quote className="absolute top-8 right-8 w-10 h-10 text-zinc-800" />
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-orange-500/30">
+                    <Image
+                      src={`https://picsum.photos/seed/${testimonial.image}/200/200`}
+                      alt={testimonial.name}
+                      fill
+                      className="object-cover"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-zinc-50">{testimonial.name}</h4>
+                    <p className="text-sm text-zinc-400">{testimonial.role}</p>
+                  </div>
+                </div>
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-orange-500 text-orange-500" />
+                  ))}
+                </div>
+                <p className="text-zinc-300 leading-relaxed italic">"{testimonial.quote}"</p>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
         {/* CTA / Contact Section */}
         <section id="contact" className="max-w-4xl mx-auto px-6 py-24 md:py-32 text-center">
           <motion.div
@@ -238,10 +369,10 @@ export default function Portfolio() {
       <footer className="border-t border-zinc-800/50 bg-zinc-950">
         <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-2xl font-heading font-bold tracking-tighter">
-            Rohit<span className="text-orange-500">.</span>
+            Rishabh<span className="text-orange-500">.</span>
           </div>
           <p className="text-zinc-500 text-sm">
-            © {new Date().getFullYear()} Rohit Singh. All rights reserved.
+            © {new Date().getFullYear()} Rishabh Chauhan. All rights reserved.
           </p>
           <div className="flex items-center gap-4 text-zinc-400">
             <Link href="#" className="hover:text-orange-500 transition-colors">
