@@ -72,6 +72,7 @@ export default function Portfolio() {
                   src="/rishabh-chauhan.png"
                   alt="Rohit Singh"
                   fill
+                  unoptimized={true}
                   className="object-cover opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-700"
                   referrerPolicy="no-referrer"
                 />
