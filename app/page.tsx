@@ -69,7 +69,7 @@ export default function Portfolio() {
             >
               <div className="relative w-72 h-72 md:w-[400px] md:h-[400px] rounded-full overflow-hidden border-[6px] border-zinc-900 ring-4 ring-orange-500/20 bg-zinc-900 shadow-2xl shadow-orange-500/20">
                 <Image
-                  src="https://picsum.photos/seed/rohitsingh/800/800"
+                  src="/rishabh-chauhan.png"
                   alt="Rohit Singh"
                   fill
                   className="object-cover opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-700"
